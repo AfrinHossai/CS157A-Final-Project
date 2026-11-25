@@ -1,0 +1,18 @@
+[project]
+name = "cs157a-final-project"
+version = "0.1.0"
+description = "CS 157A final project"
+requires-python = ">=3.11"
+dependencies = [
+    "flask",
+    "mysql-connector-python",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["backend"]

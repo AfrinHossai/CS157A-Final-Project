@@ -5,7 +5,9 @@ description = "CS 157A final project"
 requires-python = ">=3.11"
 dependencies = [
     "flask",
+    "flask-login>=0.6.3",
     "mysql-connector-python",
+    "python-dotenv>=1.2.4",
 ]
 
 [project.optional-dependencies]

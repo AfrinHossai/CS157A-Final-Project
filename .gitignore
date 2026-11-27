@@ -26,3 +26,8 @@ env/
 
 # Logs
 *.log
+
+# Database backups
+backups/
+*.sql.gz
+*.dump

@@ -20,8 +20,36 @@ if (loginForm) {
   });
 }
 
-// Make the new static pages reachable from existing navbar placeholders.
-// This keeps navigation consistent without changing the dashboard markup.
+// Demo registration validates input locally, without creating an account.
+const registerForm = document.getElementById("register-form");
+
+if (registerForm) {
+  const password = document.getElementById("register-password");
+  const confirmPassword = document.getElementById("register-confirm-password");
+
+  function validatePasswordMatch() {
+    confirmPassword.setCustomValidity(password.value === confirmPassword.value ? "" : "Passwords must match.");
+  }
+
+  // Recheck both fields so changing either password clears stale mismatch errors.
+  password.addEventListener("input", validatePasswordMatch);
+  confirmPassword.addEventListener("input", validatePasswordMatch);
+
+  registerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    validatePasswordMatch();
+    if (!registerForm.reportValidity()) {
+      return;
+    }
+    // Clear the sample details; no credentials are logged, sent, or stored.
+    registerForm.reset();
+    confirmPassword.setCustomValidity("");
+    showDemoFeedback("Demo validation passed. No account was created and no information was sent or saved. Return to Login to continue the preview.");
+  });
+}
+
+// Make static pages reachable from existing navigation placeholders.
+// This keeps navigation consistent without changing existing HTML files.
 const navigationPages = {
   "Courses": "courses.html",
   "Study Groups": "study-groups.html",
@@ -29,9 +57,11 @@ const navigationPages = {
   "Resources": "resources.html",
   "Messages": "messages.html",
   "Notifications": "notifications.html",
+  "Profile": "profile.html",
+  "Registration": "register.html",
 };
 
-document.querySelectorAll(".navbar [data-demo-feature]").forEach((button) => {
+document.querySelectorAll('.navbar [data-demo-feature], [data-demo-feature="Registration"]').forEach((button) => {
   const destination = navigationPages[button.dataset.demoFeature];
   if (destination) {
     const link = document.createElement("a");

@@ -25,6 +25,8 @@ if (loginForm) {
 const navigationPages = {
   "Courses": "courses.html",
   "Study Groups": "study-groups.html",
+  "Study Sessions": "study-sessions.html",
+  "Resources": "resources.html",
 };
 
 document.querySelectorAll(".navbar [data-demo-feature]").forEach((button) => {
@@ -40,18 +42,18 @@ document.querySelectorAll(".navbar [data-demo-feature]").forEach((button) => {
 
 document.querySelectorAll("[data-demo-feature]").forEach((button) => {
   button.addEventListener("click", () => {
-    showDemoFeedback(`${button.dataset.demoFeature} is a placeholder for a future frontend page. This demo does not save changes.`);
+    showDemoFeedback(`${button.dataset.demoFeature} is a demo placeholder. Nothing was submitted or saved.`);
   });
 });
 
-// Search and create-group forms are UI previews. No values are read or saved.
+// Search, create, and share forms are UI previews. No values are read or saved.
 document.querySelectorAll("[data-demo-form]").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const message = `${form.dataset.demoForm} is a demo placeholder. Nothing was submitted or saved; the sample lists are unchanged.`;
     const formFeedback = form.querySelector("[data-form-feedback]");
     if (formFeedback) {
-      // Keep create-group feedback visible inside the open modal.
+      // Keep form feedback visible inside the open modal.
       formFeedback.textContent = message;
     } else {
       showDemoFeedback(message);

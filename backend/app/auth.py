@@ -3,7 +3,7 @@ from datetime import timedelta
 from flask import session
 from flask_login import LoginManager, UserMixin, login_user
 
-from .db import setting
+from .config import setting
 from .errors import api_error
 from .repositories import users
 

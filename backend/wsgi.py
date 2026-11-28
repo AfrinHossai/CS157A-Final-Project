@@ -1,5 +1,5 @@
 from app import create_app
-from app.db import setting
+from app.config import setting
 
 app = create_app()
 

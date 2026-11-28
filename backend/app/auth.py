@@ -1,9 +1,6 @@
-from datetime import timedelta
-
 from flask import session
 from flask_login import LoginManager, UserMixin, login_user
 
-from .config import setting
 from .errors import api_error
 from .repositories import users
 
@@ -24,15 +21,6 @@ class User(UserMixin):
 
 
 def init_app(app):
-    app.config.update(
-        SECRET_KEY=setting("SECRET_KEY"),
-        SESSION_COOKIE_HTTPONLY=True,
-        SESSION_COOKIE_SAMESITE="Lax",
-        PERMANENT_SESSION_LIFETIME=timedelta(days=7),
-        REMEMBER_COOKIE_DURATION=timedelta(days=30),
-        REMEMBER_COOKIE_HTTPONLY=True,
-        REMEMBER_COOKIE_SAMESITE="Lax",
-    )
     login_manager.init_app(app)
 
 

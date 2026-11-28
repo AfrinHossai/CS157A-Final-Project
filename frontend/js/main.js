@@ -20,9 +20,42 @@ if (loginForm) {
   });
 }
 
+// Make the new static pages reachable from existing navbar placeholders.
+// This keeps navigation consistent without changing the dashboard markup.
+const navigationPages = {
+  "Courses": "courses.html",
+  "Study Groups": "study-groups.html",
+};
+
+document.querySelectorAll(".navbar [data-demo-feature]").forEach((button) => {
+  const destination = navigationPages[button.dataset.demoFeature];
+  if (destination) {
+    const link = document.createElement("a");
+    link.className = button.className;
+    link.href = destination;
+    link.textContent = button.textContent;
+    button.replaceWith(link);
+  }
+});
+
 document.querySelectorAll("[data-demo-feature]").forEach((button) => {
   button.addEventListener("click", () => {
     showDemoFeedback(`${button.dataset.demoFeature} is a placeholder for a future frontend page. This demo does not save changes.`);
+  });
+});
+
+// Search and create-group forms are UI previews. No values are read or saved.
+document.querySelectorAll("[data-demo-form]").forEach((form) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const message = `${form.dataset.demoForm} is a demo placeholder. Nothing was submitted or saved; the sample lists are unchanged.`;
+    const formFeedback = form.querySelector("[data-form-feedback]");
+    if (formFeedback) {
+      // Keep create-group feedback visible inside the open modal.
+      formFeedback.textContent = message;
+    } else {
+      showDemoFeedback(message);
+    }
   });
 });
 

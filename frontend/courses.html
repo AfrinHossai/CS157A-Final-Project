@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore sample courses in the Spartan Study Hub frontend preview.">
+  <title>Courses | Spartan Study Hub</title>
+  <!-- Bootstrap is loaded from a CDN; an internet connection is required. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-xl" aria-label="Main navigation">
+      <div class="container flex-wrap">
+        <a class="navbar-brand fw-bold" href="dashboard.html">Spartan Study Hub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse dashboard-navigation" id="main-navigation">
+          <ul class="navbar-nav gap-xl-2 w-100">
+            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link active" href="courses.html" aria-current="page">Courses</a></li>
+            <li class="nav-item"><a class="nav-link" href="study-groups.html">Study Groups</a></li>
+            <!-- Future sections remain UI placeholders, with no application routes. -->
+            <li class="nav-item"><button type="button" class="nav-link" data-demo-feature="Study Sessions">Study Sessions</button></li>
+            <li class="nav-item"><button type="button" class="nav-link" data-demo-feature="Resources">Resources</button></li>
+            <li class="nav-item"><button type="button" class="nav-link" data-demo-feature="Messages">Messages</button></li>
+            <li class="nav-item"><button type="button" class="nav-link" data-demo-feature="Notifications">Notifications</button></li>
+            <li class="nav-item"><button type="button" class="nav-link" data-demo-feature="Profile">Profile</button></li>
+            <li class="nav-item ms-xl-auto"><a class="nav-link" href="index.html">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="container py-4 py-lg-5">
+    <section class="mb-4" aria-labelledby="page-title">
+      <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+        <p class="eyebrow mb-0">Your study community</p>
+        <span class="badge demo-badge">Demo preview</span>
+      </div>
+      <h1 id="page-title" class="h2 fw-bold">Courses</h1>
+      <p class="text-secondary">Keep your classes together and discover courses to study with others.</p>
+      <div class="demo-notice small">All course details and memberships are sample data. Search, filters, and action buttons are placeholders; they do not change these lists.</div>
+    </section>
+
+    <section class="card mb-4" aria-labelledby="search-title">
+      <div class="card-body p-4">
+        <h2 id="search-title" class="h5">Find a course</h2>
+        <!-- Demo search UI only. No search request is made and no filtering is applied. -->
+        <form class="row g-3 align-items-end" data-demo-form="Course search" aria-describedby="search-note">
+          <div class="col-md-6">
+            <label for="course-search" class="form-label">Course code or title</label>
+            <input id="course-search" type="search" class="form-control" placeholder="e.g., CS157A or database">
+          </div>
+          <div class="col-md-4">
+            <label for="department-filter" class="form-label">Department</label>
+            <select id="department-filter" class="form-select">
+              <option value="">All departments</option>
+              <option value="cs">Computer Science</option>
+              <option value="math">Mathematics</option>
+            </select>
+          </div>
+          <div class="col-md-2 d-grid"><button type="submit" class="btn btn-primary">Search</button></div>
+          <p id="search-note" class="small text-secondary mb-0">Demo controls only. The sample course lists remain unchanged.</p>
+        </form>
+      </div>
+    </section>
+
+    <div id="demo-feedback" class="small text-secondary mb-4" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <section class="mb-5" aria-labelledby="my-courses-title">
+      <h2 id="my-courses-title" class="h4 mb-3">My Courses</h2>
+      <!-- Mock memberships: four sample courses matching the dashboard summary. -->
+      <div class="row g-3">
+        <div class="col-md-6">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge course-badge align-self-start mb-3">CS157A</span>
+              <h3 class="h5">Introduction to Database Management Systems</h3>
+              <p class="small text-secondary">Department: Computer Science</p>
+              <p>Practice relational modeling, SQL queries, and database normalization.</p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <button type="button" class="btn btn-primary" data-demo-feature="View Course: CS157A">View Course</button>
+                <button type="button" class="btn btn-outline-primary" data-demo-feature="Remove Course: CS157A">Remove Course</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge course-badge align-self-start mb-3">CS146</span>
+              <h3 class="h5">Data Structures and Algorithms</h3>
+              <p class="small text-secondary">Department: Computer Science</p>
+              <p>Review trees, graphs, sorting, and the analysis of algorithm efficiency.</p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <button type="button" class="btn btn-primary" data-demo-feature="View Course: CS146">View Course</button>
+                <button type="button" class="btn btn-outline-primary" data-demo-feature="Remove Course: CS146">Remove Course</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge course-badge align-self-start mb-3">CS151</span>
+              <h3 class="h5">Object-Oriented Design</h3>
+              <p class="small text-secondary">Department: Computer Science</p>
+              <p>Explore design patterns, reusable components, and object-oriented applications.</p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <button type="button" class="btn btn-primary" data-demo-feature="View Course: CS151">View Course</button>
+                <button type="button" class="btn btn-outline-primary" data-demo-feature="Remove Course: CS151">Remove Course</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge course-badge align-self-start mb-3">MATH161A</span>
+              <h3 class="h5">Applied Probability and Statistics I</h3>
+              <p class="small text-secondary">Department: Mathematics</p>
+              <p>Work through probability models, random variables, and statistical reasoning.</p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <button type="button" class="btn btn-primary" data-demo-feature="View Course: MATH161A">View Course</button>
+                <button type="button" class="btn btn-outline-primary" data-demo-feature="Remove Course: MATH161A">Remove Course</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="available-courses-title">
+      <h2 id="available-courses-title" class="h4 mb-3">Available Courses</h2>
+      <!-- Mock catalog data for visual layout; this is not a live course catalog. -->
+      <div class="row g-3">
+        <div class="col-md-6 col-xl-4">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge course-badge align-self-start mb-3">CS149</span>
+              <h3 class="h5">Operating Systems</h3>
+              <p class="small text-secondary">Department: Computer Science</p>
+              <p>Study processes, memory management, concurrency, and file systems.</p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <button type="button" class="btn btn-outline-primary" data-demo-feature="View Course: CS149">View Course</button>
+                <button type="button" class="btn btn-primary" data-demo-feature="Add Course: CS149">Add Course</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge course-badge align-self-start mb-3">CS152</span>
+              <h3 class="h5">Programming Paradigms</h3>
+              <p class="small text-secondary">Department: Computer Science</p>
+              <p>Compare functional, logical, and imperative approaches to programming.</p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <button type="button" class="btn btn-outline-primary" data-demo-feature="View Course: CS152">View Course</button>
+                <button type="button" class="btn btn-primary" data-demo-feature="Add Course: CS152">Add Course</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-4">
+          <article class="card h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge course-badge align-self-start mb-3">MATH129A</span>
+              <h3 class="h5">Linear Algebra I</h3>
+              <p class="small text-secondary">Department: Mathematics</p>
+              <p>Build confidence with matrices, vector spaces, and linear transformations.</p>
+              <div class="d-flex flex-wrap gap-2 mt-auto">
+                <button type="button" class="btn btn-outline-primary" data-demo-feature="View Course: MATH129A">View Course</button>
+                <button type="button" class="btn btn-primary" data-demo-feature="Add Course: MATH129A">Add Course</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <noscript><p class="demo-notice mt-4">Enable JavaScript for the navigation menu and placeholder feedback.</p></noscript>
+  </main>
+  <footer class="container py-4 small text-secondary border-top">Spartan Study Hub · CS157A Database Project · Demo data only</footer>
+</body>
+</html>

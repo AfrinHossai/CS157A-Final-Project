@@ -1,6 +1,6 @@
 from flask import Flask
 
-from . import auth, db
+from . import auth, csrf, db
 from .config import CONFIGS
 from .errors import register_error_handlers
 from .routes import register_blueprints
@@ -19,6 +19,7 @@ def create_app(config="development"):
     selected.load_secret(app)
     db.init_app(app)
     auth.init_app(app)
+    csrf.init_app(app)
     register_blueprints(app)
     register_error_handlers(app)
     return app

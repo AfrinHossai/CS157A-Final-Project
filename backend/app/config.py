@@ -31,6 +31,7 @@ class Config:
     REMEMBER_COOKIE_DURATION = timedelta(days=30)
     MAX_CONTENT_LENGTH = 1_048_576
     PROPAGATE_EXCEPTIONS = False
+    CSRF_ENABLED = True
 
     @staticmethod
     def load_secret(app):
@@ -45,6 +46,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
     SECRET_KEY = "test-secret-key"
+    CSRF_ENABLED = False
 
 
 class ProductionConfig(Config):

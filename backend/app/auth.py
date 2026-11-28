@@ -1,6 +1,7 @@
 from flask import session
 from flask_login import LoginManager, UserMixin, login_user
 
+from . import csrf
 from .errors import api_error
 from .repositories import users
 
@@ -41,5 +42,6 @@ def unauthorized():
 
 def log_in(user, remember=False):
     session.clear()
+    csrf.rotate_token()
     session.permanent = True
     login_user(user, remember=remember)

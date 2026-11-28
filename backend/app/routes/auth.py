@@ -6,6 +6,7 @@ from mysql.connector import errorcode
 from mysql.connector.errors import IntegrityError
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from .. import csrf
 from ..auth import User, log_in
 from ..db import get_db
 from ..errors import api_error
@@ -79,6 +80,7 @@ def login():
 def logout():
     logout_user()
     session.clear()
+    csrf.rotate_token()
     return "", 204
 
 

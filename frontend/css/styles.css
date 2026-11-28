@@ -1,0 +1,128 @@
+/* Shared styles layered over Bootstrap. No build step is required. */
+:root {
+  --hub-blue: #164b82;
+  --hub-blue-dark: #10385f;
+  --hub-gold: #e5b548;
+  --hub-border: #dce3eb;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f7fa;
+  color: #243449;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a { color: var(--hub-blue); }
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  border-top: 6px solid var(--hub-gold);
+}
+
+.eyebrow {
+  color: var(--hub-blue);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro-list { padding-left: 1.25rem; }
+.intro-list li + li { margin-top: 0.5rem; }
+
+.card {
+  border: 1px solid var(--hub-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.login-card { box-shadow: 0 4px 18px rgb(36 52 73 / 6%); }
+
+.card-header {
+  padding: 1.25rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid var(--hub-border);
+}
+
+.summary-card { border-top: 3px solid var(--hub-blue); }
+.summary-card .card-body { padding: 1.25rem; }
+
+.summary-number {
+  margin: 0.25rem 0;
+  color: var(--hub-blue);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.site-header {
+  background-color: #fff;
+  border-top: 4px solid var(--hub-gold);
+  border-bottom: 1px solid var(--hub-border);
+}
+
+.navbar-brand {
+  color: var(--hub-blue);
+  font-size: 1.2rem;
+  white-space: normal;
+}
+
+.navbar-brand:hover { color: var(--hub-blue-dark); }
+.navbar .nav-link { text-align: left; }
+.navbar .nav-link.active { color: var(--hub-blue); font-weight: 700; }
+.navbar .nav-link:hover { color: var(--hub-blue); }
+.navbar-toggler { padding: 0.5rem; }
+
+.btn-primary {
+  --bs-btn-bg: var(--hub-blue);
+  --bs-btn-border-color: var(--hub-blue);
+  --bs-btn-hover-bg: var(--hub-blue-dark);
+  --bs-btn-hover-border-color: var(--hub-blue-dark);
+  --bs-btn-active-bg: var(--hub-blue-dark);
+  --bs-btn-active-border-color: var(--hub-blue-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--hub-blue);
+  --bs-btn-border-color: var(--hub-blue);
+  --bs-btn-hover-bg: var(--hub-blue);
+  --bs-btn-hover-border-color: var(--hub-blue);
+  --bs-btn-active-bg: var(--hub-blue-dark);
+  --bs-btn-active-border-color: var(--hub-blue-dark);
+}
+
+.btn-link { color: var(--hub-blue); font-size: inherit; }
+.btn, .form-control { padding: 0.65rem 0.9rem; }
+.form-control:focus { border-color: var(--hub-blue); box-shadow: 0 0 0 0.2rem rgb(22 75 130 / 15%); }
+
+.demo-badge { background-color: #fff2cf; color: #70500a; font-weight: 600; }
+.course-badge { background-color: #eaf1f8; color: var(--hub-blue); }
+.demo-notice { padding: 0.85rem 1rem; background-color: #edf2f7; border-left: 3px solid var(--hub-blue); border-radius: 0.25rem; }
+.activity-meta { color: #637084; font-size: 0.75rem; }
+
+/* Keep feedback in the layout for assistive technology, even when empty. */
+#demo-feedback:not(:empty) {
+  padding: 0.85rem 1rem;
+  background-color: #eaf1f8;
+  border-left: 3px solid var(--hub-blue);
+  border-radius: 0.25rem;
+}
+
+:focus-visible { outline: 3px solid var(--hub-blue); outline-offset: 3px; }
+.skip-link { position: absolute; top: -100px; left: 1rem; z-index: 1100; padding: 0.75rem 1rem; background-color: #fff; }
+.skip-link:focus { top: 0.5rem; }
+
+@media (min-width: 1200px) {
+  /* A second navigation row leaves room for every requested section. */
+  .navbar-expand-xl .dashboard-navigation { flex-basis: 100%; padding-top: 0.5rem; }
+}
+
+@media (max-width: 575.98px) {
+  .login-page { align-items: flex-start; }
+  .navbar-brand { max-width: calc(100% - 4.5rem); font-size: 1.05rem; }
+  .card-header { padding: 1rem; }
+}

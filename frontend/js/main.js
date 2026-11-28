@@ -48,30 +48,6 @@ if (registerForm) {
   });
 }
 
-// Make static pages reachable from existing navigation placeholders.
-// This keeps navigation consistent without changing existing HTML files.
-const navigationPages = {
-  "Courses": "courses.html",
-  "Study Groups": "study-groups.html",
-  "Study Sessions": "study-sessions.html",
-  "Resources": "resources.html",
-  "Messages": "messages.html",
-  "Notifications": "notifications.html",
-  "Profile": "profile.html",
-  "Registration": "register.html",
-};
-
-document.querySelectorAll('.navbar [data-demo-feature], [data-demo-feature="Registration"]').forEach((button) => {
-  const destination = navigationPages[button.dataset.demoFeature];
-  if (destination) {
-    const link = document.createElement("a");
-    link.className = button.className;
-    link.href = destination;
-    link.textContent = button.textContent;
-    button.replaceWith(link);
-  }
-});
-
 document.querySelectorAll("[data-demo-feature]").forEach((button) => {
   button.addEventListener("click", () => {
     showDemoFeedback(`${button.dataset.demoFeature} is a demo placeholder. Nothing was submitted or saved.`);

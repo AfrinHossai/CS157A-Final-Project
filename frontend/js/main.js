@@ -27,6 +27,8 @@ const navigationPages = {
   "Study Groups": "study-groups.html",
   "Study Sessions": "study-sessions.html",
   "Resources": "resources.html",
+  "Messages": "messages.html",
+  "Notifications": "notifications.html",
 };
 
 document.querySelectorAll(".navbar [data-demo-feature]").forEach((button) => {
@@ -46,7 +48,7 @@ document.querySelectorAll("[data-demo-feature]").forEach((button) => {
   });
 });
 
-// Search, create, and share forms are UI previews. No values are read or saved.
+// Search, create, share, and message forms are UI previews. No values are read or saved.
 document.querySelectorAll("[data-demo-form]").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
